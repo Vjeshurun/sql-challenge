@@ -14,19 +14,11 @@ from employees
 where EXTRACT(YEAR FROM hire_date) in (1986)
 
 --3. List the manager of each department (m0001, Manager) with the following information: department number, department name, the manager's employee number, last name, first name.
-Select * from dept_manager;
-Select * from dept_emp;
-Select * from titles;
-Select * from employees
-Select * from departments
 
 Select dm.dept_no as "Dept number", d.dept_name, e.emp_no as "Manager's Employee No.", e.first_name, e.last_name
 from  dept_manager as dm, employees as e, departments as d, dept_emp as de
 where dm.emp_no = e.emp_no AND dm.dept_no = d.dept_no AND d.dept_no = de.dept_no
 
- 
-	(select title_id from titles
-	where title = 'Manager')
 	
 --4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 Select de.emp_no, e.last_name, e.first_name, d.dept_name
